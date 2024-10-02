@@ -6,9 +6,11 @@ on:
     types: [requested, in_progress, completed]
   pull_request:
     types: [opened, edited, closed, reopened]
-  env: 
-    NODE_TLS_REJECT_UNAUTHORIZED: 0
+
   jobs:
+    env: 
+    NODE_TLS_REJECT_UNAUTHORIZED: 0
+    
   octane_integration_job:
     runs-on: octane
     name: OctaneIntegration#${{github.event.action}}#${{github.event.workflow_run.id}}
