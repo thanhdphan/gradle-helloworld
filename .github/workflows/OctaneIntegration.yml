@@ -2,7 +2,7 @@ name: OctaneIntegration
 on:
   workflow_run:
     workflows: [gradle-helloworld]
-    types: [requested, in_progress, completed]
+    types: [requested, completed]
   pull_request:
     types: [opened, edited, closed, reopened]
   workflow_dispatch:  # Allows manual run from the Actions tab
@@ -24,5 +24,4 @@ jobs:
             octaneClientSecret: ${{secrets.OCTANE_CLIENT_SECRET}}
             githubToken: ${{secrets.GITHUB_TOKEN}}
             serverBaseUrl: 'https://github.com/thanhdphan/gradle-helloworld'
-            pipelineNamePattern: '${workflow_name}'
             unitTestResultsGlobPattern: '**/*.xml'
