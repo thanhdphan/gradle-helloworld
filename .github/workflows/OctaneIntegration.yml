@@ -2,7 +2,7 @@ name: OctaneIntegration
 on:
   workflow_run:
     workflows: [gradle-helloworld]
-    types: [requested, completed]
+    types: [requested, in_progress, completed]
   pull_request:
     types: [opened, edited, closed, reopened]
   workflow_dispatch:  # Allows manual run from the Actions tab
@@ -10,7 +10,7 @@ env:
     NODE_TLS_REJECT_UNAUTHORIZED: 0
 jobs:   
   octane_integration_job:
-    runs-on: self-hosted
+    runs-on: [self-hosted]
     name: OctaneIntegration#${{github.event.action}}#${{github.event.workflow_run.id}}
     steps:
       - name: GitHub Actions ALM Octane Integration
@@ -24,7 +24,7 @@ jobs:
             octaneClientSecret: ${{secrets.OCTANE_CLIENT_SECRET}}
             githubToken: ${{secrets.GITHUB_TOKEN}}
             serverBaseUrl: 'https://github.com/thanhdphan/gradle-helloworld'
-            unitTestResultsGlobPattern: '**/*.xml'
-            logLevel: 2
+            unitTestResultsGlobPattern: "**/*.xml"
+            logLevel: '2-debug'
 
             
