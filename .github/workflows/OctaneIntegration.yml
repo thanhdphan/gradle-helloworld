@@ -26,4 +26,5 @@ jobs:
             serverBaseUrl: 'https://github.com/thanhdphan/gradle-helloworld'
             unitTestResultsGlobPattern: '**/*.xml'
             logLevel: 2
+
             
